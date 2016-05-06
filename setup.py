@@ -21,7 +21,7 @@ OFFICIAL_BUILD = 9999
 
 def _print(s):
     # Python 2/3 compatibility
-    sys.stdout.write(s + '\n')
+    sys.stdout.write(str(s) + '\n')
 
 class VersionCommand(Command):
 
