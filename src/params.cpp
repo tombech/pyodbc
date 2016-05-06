@@ -682,7 +682,9 @@ bool PrepareAndBind(Cursor* cur, PyObject* pSql, PyObject* original_params, bool
         {
             SQLWChar sql(pSql);
             Py_BEGIN_ALLOW_THREADS
+#if PY_MAJOR_VERSION < 3
             TRACE("SQLPrepareW(%s)\n", PyString_AsString(pSql));
+#endif
             ret = SQLPrepareW(cur->hstmt, sql, SQL_NTS);
             if (SQL_SUCCEEDED(ret))
             {
